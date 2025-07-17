@@ -201,11 +201,11 @@ const HitTestingPage: FC<Props> = ({ datasetId }: Props) => {
         <ModifyRetrievalModal
           indexMethod={currentDataset?.indexing_technique || ''}
           value={retrievalConfig}
-          isShow={isShowMobutterflyRetrievalModal}
-          onHide={() => setIsShowMobutterflyRetrievalModal(false)}
+          isShow={isShowModifyRetrievalModal}
+          onHide={() => setIsShowModifyRetrievalModal(false)}
           onSave={(value) => {
             setRetrievalConfig(value)
-            setIsShowMobutterflyRetrievalModal(false)
+            setIsShowModifyRetrievalModal(false)
           }}
         />
       </Drawer>

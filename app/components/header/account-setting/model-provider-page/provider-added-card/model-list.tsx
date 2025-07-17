@@ -38,7 +38,7 @@ const ModelList: FC<ModelListProps> = ({
   const isConfigurable = configurativeMethods.includes(ConfigurationMethodEnum.customizableModel)
 
   const setShowModelLoadBalancingModal = useModalContextSelector(state => state.setShowModelLoadBalancingModal)
-  const onMobutterflyLoadBalancing = useCallback((model: ModelItem) => {
+  const onModifyLoadBalancing = useCallback((model: ModelItem) => {
     setShowModelLoadBalancingModal({
       provider,
       model: model!,
@@ -89,7 +89,7 @@ const ModelList: FC<ModelListProps> = ({
                 provider,
                 isConfigurable,
                 onConfig,
-                onMobutterflyLoadBalancing,
+                onModifyLoadBalancing,
               }}
             />
           ))

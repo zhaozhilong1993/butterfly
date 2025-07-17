@@ -7,7 +7,7 @@ import RetrievalSettings from '../external-knowledge-base/create/RetrievalSettin
 import Button from '@/app/components/base/button'
 import ActionButton from '@/app/components/base/action-button'
 
-type MobutterflyExternalRetrievalModalProps = {
+type ModifyExternalRetrievalModalProps = {
   onClose: () => void
   onSave: (data: { top_k: number; score_threshold: number; score_threshold_enabled: boolean }) => void
   initialTopK: number
@@ -15,7 +15,7 @@ type MobutterflyExternalRetrievalModalProps = {
   initialScoreThresholdEnabled: boolean
 }
 
-const MobutterflyExternalRetrievalModal: React.FC<MobutterflyExternalRetrievalModalProps> = ({
+const ModifyExternalRetrievalModal: React.FC<ModifyExternalRetrievalModalProps> = ({
   onClose,
   onSave,
   initialTopK,
@@ -68,4 +68,4 @@ const MobutterflyExternalRetrievalModal: React.FC<MobutterflyExternalRetrievalMo
   )
 }
 
-export default MobutterflyExternalRetrievalModal
+export default ModifyExternalRetrievalModal

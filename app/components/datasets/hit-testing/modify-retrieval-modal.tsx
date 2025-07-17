@@ -20,7 +20,7 @@ type Props = {
   onSave: (value: RetrievalConfig) => void
 }
 
-const MobutterflyRetrievalModal: FC<Props> = ({
+const ModifyRetrievalModal: FC<Props> = ({
   indexMethod,
   value,
   isShow,
@@ -115,4 +115,4 @@ const MobutterflyRetrievalModal: FC<Props> = ({
     </div>
   )
 }
-export default React.memo(MobutterflyRetrievalModal)
+export default React.memo(ModifyRetrievalModal)

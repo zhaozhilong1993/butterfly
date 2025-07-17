@@ -22,10 +22,10 @@ export type ModelListItemProps = {
   provider: ModelProvider
   isConfigurable: boolean
   onConfig: (currentCustomConfigurationModelFixedFields?: CustomConfigurationModelFixedFields) => void
-  onMobutterflyLoadBalancing?: (model: ModelItem) => void
+  onModifyLoadBalancing?: (model: ModelItem) => void
 }
 
-const ModelListItem = ({ model, provider, isConfigurable, onConfig, onMobutterflyLoadBalancing }: ModelListItemProps) => {
+const ModelListItem = ({ model, provider, isConfigurable, onConfig, onModifyLoadBalancing }: ModelListItemProps) => {
   const { t } = useTranslation()
   const { plan } = useProviderContext()
   const modelLoadBalancingEnabled = useProviderContextSelector(state => state.modelLoadBalancingEnabled)
@@ -90,7 +90,7 @@ const ModelListItem = ({ model, provider, isConfigurable, onConfig, onMobutterfl
                 <Button
                   size='small'
                   className='opacity-0 transition-opacity group-hover:opacity-100'
-                  onClick={() => onMobutterflyLoadBalancing?.(model)}
+                  onClick={() => onModifyLoadBalancing?.(model)}
                 >
                   <Balance className='mr-1 h-3.5 w-3.5' />
                   {t('common.modelProvider.configLoadBalancing')}

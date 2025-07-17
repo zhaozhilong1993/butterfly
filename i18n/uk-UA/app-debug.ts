@@ -233,7 +233,7 @@ const translation = {
   completionSubTitle: 'Префікс команди', // Prefix Prompt
   promptTip: 'Запити керують відповідями ШІ, надаючи інструкції та обмеження. Вставте змінні, як-от {{input}}. Цей запит не буде видно користувачам.',
   formattingChangedTitle: 'Змінено форматування', // Formatting changed
-  formattingChangedText: 'Змінення форматування призведе до скидання області налагодження. Ви впевнені?', // Mobutterflying the formatting will reset the debug area, are you sure?
+      formattingChangedText: 'Змінення форматування призведе до скидання області налагодження. Ви впевнені?', // Modifying the formatting will reset the debug area, are you sure?
   variableTitle: 'Змінні', // Variables
   variableTip: 'Користувачі заповнюють змінні у формі, автоматично замінюючи змінні в команді.',
   notSetVar: 'Змінні дозволяють користувачам вводити підказки або вступні зауваження під час заповнення форм. Ви можете спробувати ввести "{{input}}" у слова підказки.',

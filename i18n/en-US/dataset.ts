@@ -210,7 +210,7 @@ const translation = {
       deleteContent: 'Are you sure you want to delete the metadata "{{name}}"',
     },
     documentMetadata: {
-      metadataToolTip: 'Metadata serves as a critical filter that enhances the accuracy and relevance of information retrieval. You can mobutterfly and add metadata for this document here.',
+      metadataToolTip: 'Metadata serves as a critical filter that enhances the accuracy and relevance of information retrieval. You can modify and add metadata for this document here.',
       startLabeling: 'Start Labeling',
       documentInformation: 'Document Information',
       technicalParameters: 'Technical Parameters',
