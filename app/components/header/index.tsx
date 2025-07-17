@@ -7,7 +7,7 @@ import { Bars3Icon } from '@heroicons/react/20/solid'
 import AccountDropdown from './account-dropdown'
 import AppNav from './app-nav'
 import DatasetNav from './dataset-nav'
-import EnvNav from './env-nav'
+
 import PluginsNav from './plugins-nav'
 import ExploreNav from './explore-nav'
 import ToolsNav from './tools-nav'
@@ -93,7 +93,6 @@ const Header = () => {
         )
       }
       <div className='flex shrink-0 items-center pr-3'>
-        <EnvNav />
         <div className='mr-2'>
           <PluginsNav />
         </div>
