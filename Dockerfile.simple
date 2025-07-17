@@ -1,0 +1,56 @@
+# Use a more stable base image
+FROM node:18-alpine AS base
+LABEL maintainer="butterfly-web"
+
+# Install dependencies
+RUN apk add --no-cache tzdata
+RUN npm install -g pnpm@8.15.0
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package.json pnpm-lock.yaml ./
+
+# Install dependencies with Chinese registry
+RUN pnpm install --frozen-lockfile --registry https://registry.npmmirror.com/
+
+# Copy source code
+COPY . .
+
+# Build the application
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+RUN pnpm build
+
+# Production stage
+FROM node:18-alpine AS production
+
+# Install PM2
+RUN npm install -g pm2
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV CONSOLE_API_URL=http://172.16.1.50:5001
+ENV APP_API_URL=http://172.16.1.50:5001
+ENV EDITION=SELF_HOSTED
+ENV DEPLOY_ENV=PRODUCTION
+
+# Set timezone
+ENV TZ=UTC
+RUN ln -s /usr/share/zoneinfo/${TZ} /etc/localtime
+
+# Copy built application
+WORKDIR /app
+COPY --from=base /app/public ./public
+COPY --from=base /app/.next/standalone ./
+COPY --from=base /app/.next/static ./.next/static
+
+# Create PM2 config
+RUN echo '{"apps":[{"name":"butterfly-web","script":"server.js","instances":2,"exec_mode":"cluster"}]}' > ecosystem.config.js
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["pm2-runtime", "start", "ecosystem.config.js"] 

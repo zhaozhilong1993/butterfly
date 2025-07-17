@@ -1,0 +1,24 @@
+services:
+  butterfly-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.simple
+    container_name: butterfly-web
+    ports:
+      - "3000:3000"
+    environment:
+      - CONSOLE_API_URL=http://172.16.1.50:5001
+      - APP_API_URL=http://172.16.1.50:5001
+      - EDITION=SELF_HOSTED
+      - DEPLOY_ENV=PRODUCTION
+      - MARKETPLACE_API_URL=https://marketplace.dify.ai
+      - MARKETPLACE_URL=https://marketplace.dify.ai
+      - NEXT_TELEMETRY_DISABLED=1
+      - PM2_INSTANCES=2
+    restart: unless-stopped
+    networks:
+      - butterfly-network
+
+networks:
+  butterfly-network:
+    driver: bridge 
