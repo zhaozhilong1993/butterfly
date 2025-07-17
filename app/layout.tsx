@@ -35,6 +35,25 @@ const LocaleLayout = async ({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Basic polyfill for older browsers
+            if (!window.Promise) {
+              console.warn('Promise not supported, some features may not work');
+            }
+            if (!window.fetch) {
+              console.warn('Fetch not supported, some features may not work');
+            }
+            // Fix for older browsers that don't support some CSS properties
+            if (typeof CSS !== 'undefined' && CSS.supports) {
+              if (!CSS.supports('display', 'flex')) {
+                document.body.style.display = 'block';
+              }
+            }
+          `
+        }} />
       </head>
       <body
         className="color-scheme h-full select-auto"
