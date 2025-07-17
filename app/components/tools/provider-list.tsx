@@ -2,7 +2,6 @@
 import { useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { Collection } from './types'
-import Marketplace from './marketplace'
 import cn from '@/utils/classnames'
 import { useTabSearchParams } from '@/hooks/use-tab-searchparams'
 import TabSliderNew from '@/app/components/base/tab-slider-new'
@@ -130,17 +129,6 @@ const ProviderList = () => {
           {!filteredCollectionList.length && activeTab === 'builtin' && (
             <Empty lightCard text={t('tools.noTools')} className='h-[224px] px-12' />
           )}
-          {
-            enable_marketplace && activeTab === 'builtin' && (
-              <Marketplace
-                onMarketplaceScroll={() => {
-                  containerRef.current?.scrollTo({ top: containerRef.current.scrollHeight, behavior: 'smooth' })
-                }}
-                searchPluginText={keywords}
-                filterPluginTags={tagFilterValue}
-              />
-            )
-          }
         </div>
       </div>
       {currentProvider && !currentProvider.plugin_id && (
