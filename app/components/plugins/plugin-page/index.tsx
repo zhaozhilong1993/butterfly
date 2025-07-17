@@ -48,11 +48,9 @@ const BUNDLE_INFO_KEY = 'bundle-info'
 
 export type PluginPageProps = {
   plugins: React.ReactNode
-  marketplace: React.ReactNode
 }
 const PluginPage = ({
   plugins,
-  marketplace,
 }: PluginPageProps) => {
   const { t } = useTranslation()
   const { locale } = useContext(I18n)
@@ -260,9 +258,7 @@ const PluginPage = ({
           />
         </>
       )}
-      {
-        isExploringMarketplace && enable_marketplace && marketplace
-      }
+
 
       {showPluginSettingModal && (
         <PermissionSetModal
