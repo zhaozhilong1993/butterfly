@@ -61,11 +61,10 @@ export const PluginPageContextProvider = ({
   })
   const [currentPluginID, setCurrentPluginID] = useState<string | undefined>()
 
-  const { enable_marketplace } = useAppContextSelector(s => s.systemFeatures)
   const tabs = usePluginPageTabs()
   const options = useMemo(() => {
-    return enable_marketplace ? tabs : tabs.filter(tab => tab.value !== PLUGIN_PAGE_TABS_MAP.marketplace)
-  }, [tabs, enable_marketplace])
+    return tabs
+  }, [tabs])
   const [activeTab, setActiveTab] = useTabSearchParams({
     defaultTab: options[0].value,
   })
